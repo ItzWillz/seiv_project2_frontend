@@ -13,12 +13,14 @@ body {
 
 .card {
     background: var(--surface-card);
-    padding-top: 7rem;
-    padding-left: 2rem;
+    margin-top: 7rem;
+    margin-left: 2rem;
     border-radius: 10px;
-    width: 40%;
+    width: 50%;
+    max-height: 70%;
     display: block;
-    box-shadow: 10px 10px grey;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
+    
 
 }
 
@@ -34,9 +36,7 @@ button{
 }
 
 .column {
-    float: left;
-    width: 50%;
-    padding: 10px;
-    display: block;
+    display: flex;
+    column-gap: 150px;
   }
 
