@@ -24,11 +24,56 @@
       </div>
       </div>
     </div>
+    
+    <div class="card text-center m-3">
+        <div class="card-body">New course courseNum, maybe:</div>
+    </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import Listbox from 'primevue/listbox';
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  }
+}
+
+// Post attempt with axios
+// import axios from "axios";
+// axios.post('http://localhost:8081/', {
+//       courseNum: 'Test',
+//        dept: 'test',
+//        level: '1',
+//        hours: '1',
+//        name: 'test'
+// }).then(function (response) {
+//   console.log(response);
+// });
+
+// // POST request using fetch with set headers
+// import CourseServices from "../courseServices.js";
+// import { useRouter } from "vue-router";
+
+// const router = useRouter();
+//   const data = {
+//        courseNum: 'Test',
+//        dept: 'test',
+//        level: '1',
+//        hours: '1',
+//        name: 'test'
+//   };
+//   CourseServices.create(data)
+//     .then((response) => {
+//       console.log("add " + response.data);
+//       router.push({ name: "courses" });
+//     })
+//     .catch((e) => {
+//       console.log(e.response.data.message);
+//     });
+
 
 const selectedCity = ref();
 const cities = ref([
@@ -40,6 +85,7 @@ const cities = ref([
     { name: 'Course', code: '3' },
     { name: 'Course', code: '4' }
 ]);
+
 </script>
 
 
