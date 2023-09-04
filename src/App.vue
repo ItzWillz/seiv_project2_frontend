@@ -1,17 +1,45 @@
+
+
+
+
 <template>
-  <ViewCourse />
+    <!--MenuBar /-->
+    <div style="background-color: maroon; width 100%; height:50px; margin:-10px; display:block;">
+      <h1 style="color:white; text-align:center; margin:0px; padding-top:10px;">View Courses</h1>
+      </div>
+
+      <div class="column">
+    <div class="card flex justify-content-center">
+        <Listbox v-model="selectedCity" :options="cities" filter optionLabel="name" />
+    </div>
+    <div style="margin-top: 7rem"> 
+      <h1 style="text-align: center;">Actions</h1>
+      <div class="row">
+      <button >View</button>
+      <button>Edit</button>
+      </div>
+      <div class="row">
+      <button>Add</button>
+      <button>Delete</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="card text-center m-3">
+        <div class="card-body">New course courseNum, maybe:</div>
+    </div>
 </template>
 
-<script>
-import ViewCourse from './components/addCourse.vue'
+<script setup>
+import { ref } from "vue";
+import Listbox from 'primevue/listbox';
 
-//export default {
-//  name: 'App',
-//  components: {
-//    ViewCourse
-//  }
-//}
-
+// export default {
+//   name: 'App',
+//   components: {
+//     HelloWorld
+//   }
+// }
 
 // Post attempt with axios
 // import axios from "axios";
@@ -83,13 +111,11 @@ const cities = ref([
 
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
+
+
+
+
+
+
+
