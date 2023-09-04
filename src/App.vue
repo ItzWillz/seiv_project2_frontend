@@ -4,6 +4,7 @@
 
 <template>
     <!--MenuBar /-->
+    <!--ViewCourse /-->
     <div style="background-color: maroon; width 100%; height:50px; margin:-10px; display:block;">
       <h1 style="color:white; text-align:center; margin:0px; padding-top:10px;">View Courses</h1>
       </div>
@@ -33,6 +34,7 @@
 <script setup>
 import { ref } from "vue";
 import Listbox from 'primevue/listbox';
+//import ViewCourse from './components/addCourse.vue'
 
 // export default {
 //   name: 'App',
@@ -98,24 +100,26 @@ fetch('http://localhost:8081/', requestOptions)
 //     });
 
 
-const selectedCity = ref();
-const cities = ref([
-    { name: 'Course', code: 'NY' },
-    { name: 'Course', code: 'RM' },
-    { name: 'Course', code: 'LDN' },
-    { name: 'Course', code: 'IST' },
-    { name: 'Course', code: 'PRS' },
-    { name: 'Course', code: '3' },
-    { name: 'Course', code: '4' }
-]);
+// const selectedCity = ref();
+// const cities = ref([
+//     { name: 'Course', code: 'NY' },
+//     { name: 'Course', code: 'RM' },
+//     { name: 'Course', code: 'LDN' },
+//     { name: 'Course', code: 'IST' },
+//     { name: 'Course', code: 'PRS' },
+//     { name: 'Course', code: '3' },
+//     { name: 'Course', code: '4' }
+// ]);
 
 </script>
 
-
-
-
-
-
-
-
-
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
