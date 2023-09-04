@@ -1,3 +1,7 @@
+
+
+
+
 <template>
     <!--MenuBar /-->
     <!--ViewCourse /-->
@@ -38,13 +42,6 @@ import Listbox from 'primevue/listbox';
 //     HelloWorld
 //   }
 // }
-
-//export default {
-//  name: 'App',
-//  components: {
-//    ViewCourse
-//  }
-//}
 
 // Post attempt with axios
 // import axios from "axios";
@@ -115,7 +112,6 @@ fetch('http://localhost:8081/', requestOptions)
 // ]);
 
 </script>
-
 
 <style>
 #app {
