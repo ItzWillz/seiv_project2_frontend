@@ -34,12 +34,12 @@
 import { ref } from "vue";
 import Listbox from 'primevue/listbox';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+// export default {
+//   name: 'App',
+//   components: {
+//     HelloWorld
+//   }
+// }
 
 // Post attempt with axios
 // import axios from "axios";
@@ -52,6 +52,29 @@ export default {
 // }).then(function (response) {
 //   console.log(response);
 // });
+
+//One that works, ish
+const product = ref(null);
+
+// POST request using fetch with set headers
+const requestOptions = {
+    method: 'POST',
+    headers: { 
+        'Content-Type': 'application/json',
+        'My-Custom-Header': 'foobar'
+    },
+    body: JSON.stringify({
+       courseNum: 'Test',
+       dept: 'test',
+       level: '1',
+       hours: '1',
+       name: 'test'
+       })
+};
+fetch('http://localhost:8081/', requestOptions)
+    .then(response => response.json())
+    .then(data => product.value = data);
+
 
 // // POST request using fetch with set headers
 // import CourseServices from "../courseServices.js";
