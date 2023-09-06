@@ -73,7 +73,6 @@ fetch('http://localhost:8081/', requestOptions)
     .then(response => response.json())
     .then(data => product.value = data);
 
-
 // // POST request using fetch with set headers
 // import CourseServices from "../courseServices.js";
 // import { useRouter } from "vue-router";
