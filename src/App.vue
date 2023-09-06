@@ -1,22 +1,18 @@
 <script setup>
 import { ref } from "vue";
 import Listbox from 'primevue/listbox';
-import {useRouter} from "vue-router";
-const router = useRouter();
+//import {useRouter} from "vue-router";
+import router from "../src/router.js";
+//const router = useRouter();
 //import ViewCourse from './components/addCourse.vue'
 
 const addCourse =() => {
-     router.push({ path: './views/addCourses'});
-
-}
-
-  // addCourse()
-  // {
-  //   //   router.push({name:"add"});
-
-  // };
+  console.log("help me plase");
+     router.push({ path: 'add'});
+       console.log("crying myself to sleep");
 
 
+};
 
 
 // export default {
@@ -99,14 +95,14 @@ fetch('http://localhost:8081/', requestOptions)
 
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
+} */
 </style>
 
 
@@ -129,6 +125,8 @@ fetch('http://localhost:8081/', requestOptions)
       </div>
       <div class="row">
       <button @click=addCourse>Add</button>
+      <!-- <a href="../views/addCourses.vue">Add</a> -->
+
       <button>Delete</button>
       </div>
       </div>

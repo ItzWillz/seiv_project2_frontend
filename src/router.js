@@ -2,21 +2,21 @@ import {createRouter, createWebHistory} from "vue-router";
 
 import AddCourse from "./views/addCourses.vue";
 import ViewCourse from "./views/ViewCourses.vue";
-import EditCourse from "./views/EditCourses.vue";
-import ListCourses from "./App.vue";
+//import EditCourse from "./views/EditCourses.vue";
+//import ListCourses from "./App.vue";
 
 
 
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHistory("http://localhost:8080"),
     routes:[
-        {
-            path:"/",
-            alias: "/list",
-            name: "list",
-            component: ListCourses,
-        },
+        // {
+        //     path:"/",
+        //     alias: "/list",
+        //     name: "list",
+        //     component: ListCourses,
+        // },
         {
             path:"/add",
             name: "add",
@@ -27,11 +27,11 @@ const router = createRouter({
             name: "view",
             component: ViewCourse,
         },
-        {
-            path:"/edit",
-            name: "edit",
-            component: EditCourse,
-        },
+        // {
+        //     path:"/edit",
+        //     name: "edit",
+        //     component: EditCourse,
+        // },
     ],
 });
 

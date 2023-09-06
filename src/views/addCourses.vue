@@ -1,3 +1,14 @@
+  <script>
+  export default {
+    data: () => ({
+      valid: false,
+      name: '',
+      hours: '',
+      number: '',
+    }),
+  }
+</script>
+
 <template>
     <v-form v-model="valid">
         <h1>Add Course 
@@ -76,13 +87,3 @@
       </v-container>
     </v-form>
   </template>
-  <script>
-  export default {
-    data: () => ({
-      valid: false,
-      name: '',
-      hours: '',
-      number: '',
-    }),
-  }
-</script>
