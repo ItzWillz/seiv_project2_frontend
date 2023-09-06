@@ -1,36 +1,23 @@
-<template>
-    <!--MenuBar /-->
-    <!--ViewCourse /-->
-    <div style="background-color: maroon; width 100%; height:50px; margin:-10px; display:block;">
-      <h1 style="color:white; text-align:center; margin:0px; padding-top:10px;">View Courses</h1>
-      </div>
-
-      <div class="column">
-    <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" filter optionLabel="name" />
-    </div>
-    <div style="margin-top: 7rem"> 
-      <h1 style="text-align: center;">Actions</h1>
-      <div class="row">
-      <button >View</button>
-      <button>Edit</button>
-      </div>
-      <div class="row">
-      <button>Add</button>
-      <button>Delete</button>
-      </div>
-      </div>
-    </div>
-    
-    <div class="card text-center m-3">
-        <div class="card-body">New course courseNum, maybe:</div>
-    </div>
-</template>
-
 <script setup>
 import { ref } from "vue";
 import Listbox from 'primevue/listbox';
+import {useRouter} from "vue-router";
+const router = useRouter();
 //import ViewCourse from './components/addCourse.vue'
+
+const addCourse =() => {
+     router.push({ path: './views/addCourses'});
+
+}
+
+  // addCourse()
+  // {
+  //   //   router.push({name:"add"});
+
+  // };
+
+
+
 
 // export default {
 //   name: 'App',
@@ -108,6 +95,9 @@ fetch('http://localhost:8081/', requestOptions)
 
 </script>
 
+
+
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -118,3 +108,34 @@ fetch('http://localhost:8081/', requestOptions)
   margin-top: 60px;
 }
 </style>
+
+
+<template>
+    <!--MenuBar /-->
+    <!--ViewCourse /-->
+    <div style="background-color: maroon; width 100%; height:50px; margin:-10px; display:block;">
+      <h1 style="color:white; text-align:center; margin:0px; padding-top:10px;">View Courses</h1>
+      </div>
+
+      <div class="column">
+    <div class="card flex justify-content-center">
+        <Listbox v-model="selectedCity" :options="cities" filter optionLabel="name" />
+    </div>
+    <div style="margin-top: 7rem"> 
+      <h1 style="text-align: center;">Actions</h1>
+      <div class="row">
+      <button >View</button>
+      <button>Edit</button>
+      </div>
+      <div class="row">
+      <button @click=addCourse>Add</button>
+      <button>Delete</button>
+      </div>
+      </div>
+    </div>
+    
+    <div class="card text-center m-3">
+        <div class="card-body">New course courseNum, maybe:</div>
+    </div>
+</template>
+
