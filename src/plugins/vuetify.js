@@ -4,12 +4,14 @@
 import { createVuetify } from "vuetify";
 
 // Misc
-import { loadFonts } from "./webfontloader";
-loadFonts();
+//import { loadFonts } from "./webfontloader";
+//loadFonts();
 
 // Styles
  import "vuetify/styles";
 // import "@mdi/font/css/materialdesignicons.css";
+
+import * as components from 'vuetify/components'
 
 const myCustomLightTheme = {
   dark: false,
@@ -27,6 +29,7 @@ const myCustomLightTheme = {
 };
 
 const vuetify = createVuetify({
+  components,
   theme: {
     defaultTheme: "myCustomLightTheme",
     themes: {
