@@ -1,13 +1,43 @@
-<script>
-  
-  export default {
-    data: () => ({
-      valid: false,
+<script setup>
+
+import { ref }  from "vue";
+import CourseServices from "../services/courseServices.js";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+//const message = ref("Enter data and click save");
+
+const course =  ref({
+      id: null,
+      courseNum: '',
       name: '',
       hours: '',
-      number: '',
-    }),
-  }
+      level: '',
+      dept: '',
+      descriptions: '',
+    });
+
+const saveCourse = () => {
+  const data = {
+    courseNum: course.value.courseNum,
+    name: course.value.name,
+    hours: course.value.hours,
+    level: course.value.level,
+    dept: course.value.department,
+    description: course.value.description,
+  };
+  CourseServices.create(data)
+    .then((response) => {
+      course.value.id = response.data.id;
+      console.log("add " + response.data);
+      router.push({ name: "home" });
+    })
+    .catch((e) => {
+      //message.value = e.response.data.message;
+      console.log(e);
+    });
+};
+
 </script>
 
 <template>
@@ -79,7 +109,7 @@
         class="text-none mb-4"
         color="#AD1212"
         variant="flat"
-        @click="loading = !loading"
+        @click="saveCourse()"
       >
         Submit
       </v-btn>
