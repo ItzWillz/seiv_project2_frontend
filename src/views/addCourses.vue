@@ -1,6 +1,6 @@
 <script setup>
   import { ref } from "vue";
-  import courseServices from "../services/courseServices";
+  import courseServices from "../services/courseServices.js";
   import { useRouter } from "vue-router";
   
   const valid = ref(false);
@@ -45,7 +45,7 @@ const saveCourse = () => {
       <h1 style="color:white; text-align:center; margin:0px; padding-top:5px;">Add Course</h1>
       </div>
 
-    <v-form v-model="valid" :disabled="isDisabled" style="padding-top:50px;">
+    <v-form v-model="valid" style="padding-top:50px;">
 
 
       <v-container>

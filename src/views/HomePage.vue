@@ -3,31 +3,56 @@ import { ref } from "vue";
 import Listbox from 'primevue/listbox';
 import router from "@/router.js";
 //import ViewCourse from './components/addCourse.vue'
+import courseServices from "../services/courseServices";
+
+const course = ({});
+
+const retrieveLessons = () => {
+  courseServices.getAll()
+    .then((response) => {
+      course.value = response.data;
+    })
+    .catch((e) => {
+        console.log(e);
+    //   message.value = e.response.data.message;
+    });
+};
+
+
+retrieveLessons(); //end of script tag
+
 
 const addCourse =() => {
-  console.log("help me plase");
      router.push({ name: 'add'});
-       console.log("crying myself to sleep");
 };
 
 const editCourse =() => {
      router.push({ name: 'edit'});
 };
 
-const selectedCity = ref();
+const selectedCourse = ref();
 const cities = ref([
     { name: 'Course', code: '1' },
     { name: 'Course', code: '2' },
     { name: 'Course', code: '3' },
     { name: 'Course', code: '4' },
     { name: 'Course', code: '5' },
-    { name: 'Course', code: '6' },
-    { name: 'Course', code: '7' }
+    { name: 'Course',code: '6' },
+    { name: 'Course',code: '7' }
 ]);
+const items = ref(Array.from({ length: cities.value.length }, (_, i) => ({ label: `${cities.value[i].name} ${cities.value[i].code}`, })));
+
+
+
+
+
 </script>
 
 <template>
-    <!--MenuBar /-->
+ <!-- <tr v-for="(item, index) in tutorials" :key="item.title">
+              <td>{{ item.title }}</td>
+              <td>{{ item.description }}</td>
+                          </tr> -->
     <!--ViewCourse /-->
     <div style="background-color: maroon; width 100%; height:50px; margin:-10px; display:block;">
       <h1 style="color:white; text-align:center; margin:0px; padding-top:10px;">View Courses</h1>
@@ -35,7 +60,7 @@ const cities = ref([
 
       <div class="column">
     <div class="card flex justify-content-center">
-        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" />
+        <Listbox v-model="selectedCourse" :options="items" optionLabel="label" />
     </div>
     <div style="margin-top: 7rem"> 
       <h1 style="text-align: center;">Actions</h1>
