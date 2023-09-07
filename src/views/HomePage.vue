@@ -8,19 +8,21 @@ const addCourse =() => {
   console.log("help me plase");
      router.push({ name: 'add'});
        console.log("crying myself to sleep");
+};
 
-
+const editCourse =() => {
+     router.push({ name: 'edit'});
 };
 
 const selectedCity = ref();
 const cities = ref([
-    { name: 'Course', code: 'NY' },
-    { name: 'Course', code: 'RM' },
-    { name: 'Course', code: 'LDN' },
-    { name: 'Course', code: 'IST' },
-    { name: 'Course', code: 'PRS' },
+    { name: 'Course', code: '1' },
+    { name: 'Course', code: '2' },
     { name: 'Course', code: '3' },
-    { name: 'Course', code: '4' }
+    { name: 'Course', code: '4' },
+    { name: 'Course', code: '5' },
+    { name: 'Course', code: '6' },
+    { name: 'Course', code: '7' }
 ]);
 </script>
 
@@ -39,7 +41,7 @@ const cities = ref([
       <h1 style="text-align: center;">Actions</h1>
       <div class="row">
       <button >View</button>
-      <button>Edit</button>
+      <button @click=editCourse>Edit</button>
       </div>
       <div class="row">
       <button @click=addCourse>Add</button>
