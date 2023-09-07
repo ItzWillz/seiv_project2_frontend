@@ -2,8 +2,9 @@
 import { ref } from "vue";
 import Listbox from 'primevue/listbox';
 import router from "@/router.js";
-//import ViewCourse from './components/addCourse.vue'
 import courseServices from "../services/courseServices";
+
+//import ViewCourse from './components/addCourse.vue'
 
 const course = ({});
 
@@ -17,9 +18,6 @@ const retrieveLessons = () => {
     //   message.value = e.response.data.message;
     });
 };
-
-
-retrieveLessons(); //end of script tag
 
 
 const addCourse =() => {
@@ -41,10 +39,7 @@ const cities = ref([
     { name: 'Course',code: '7' }
 ]);
 const items = ref(Array.from({ length: cities.value.length }, (_, i) => ({ label: `${cities.value[i].name} ${cities.value[i].code}`, })));
-
-
-
-
+retrieveLessons();
 
 </script>
 
