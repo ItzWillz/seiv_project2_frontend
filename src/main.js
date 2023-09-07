@@ -14,7 +14,7 @@ import router from './router'
 
 const app = createApp(App);
 
-app.use(router, vuetify, PrimeVue, { ripple: true  });
+app.use(PrimeVue, { ripple: true  }).use(router).use(vuetify);
 
 app.component('list-box', Listbox);
 

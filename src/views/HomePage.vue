@@ -1,6 +1,6 @@
 <script setup>
-//import { ref } from "vue";
-//import Listbox from 'primevue/listbox';
+import { ref } from "vue";
+import Listbox from 'primevue/listbox';
 import router from "@/router.js";
 //import ViewCourse from './components/addCourse.vue'
 
@@ -12,16 +12,16 @@ const addCourse =() => {
 
 };
 
-// const selectedCity = ref();
-// const cities = ref([
-//     { name: 'Course', code: 'NY' },
-//     { name: 'Course', code: 'RM' },
-//     { name: 'Course', code: 'LDN' },
-//     { name: 'Course', code: 'IST' },
-//     { name: 'Course', code: 'PRS' },
-//     { name: 'Course', code: '3' },
-//     { name: 'Course', code: '4' }
-// ]);
+const selectedCity = ref();
+const cities = ref([
+    { name: 'Course', code: 'NY' },
+    { name: 'Course', code: 'RM' },
+    { name: 'Course', code: 'LDN' },
+    { name: 'Course', code: 'IST' },
+    { name: 'Course', code: 'PRS' },
+    { name: 'Course', code: '3' },
+    { name: 'Course', code: '4' }
+]);
 </script>
 
 <template>
@@ -33,7 +33,7 @@ const addCourse =() => {
 
       <div class="column">
     <div class="card flex justify-content-center">
-        <!--<Listbox v-model="selectedCity" :options="cities" optionLabel="name" />-->
+        <Listbox v-model="selectedCity" :options="cities" optionLabel="name" />
     </div>
     <div style="margin-top: 7rem"> 
       <h1 style="text-align: center;">Actions</h1>
