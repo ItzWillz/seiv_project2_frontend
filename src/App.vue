@@ -6,7 +6,7 @@ import courseServices from "./services/courseServices.js";
 
 //import ViewCourse from './components/addCourse.vue'
 
-const course = ({});
+const course = ( {} );
 
 const retrieveLessons = () => {
   courseServices.getAll()
