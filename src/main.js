@@ -8,8 +8,8 @@ import "primeicons/primeicons.css";
 import "./style.css";
 
 import PrimeVue from "primevue/config";
-import Listbox from 'primevue/listbox';
-import router from './router'
+import Listbox from "primevue/listbox";
+import router from "./router.js"
 
 
 const app = createApp(App);
