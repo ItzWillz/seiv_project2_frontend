@@ -6,9 +6,6 @@ import Home from "./views/HomePage.vue"
 import EditCourse from "./views/EditCourse.vue";
 //import ListCourses from "./App.vue";
 
-
-
-
 const router = createRouter({
     history: createWebHistory(),
     routes:[
