@@ -11,6 +11,10 @@ import courseServices from "./services/courseServices.js";
 <v-app>
   <v-name>
   <router-view />
+
+  <div>
+    <h1> hi </h1>
+  </div>
   </v-name>
 </v-app>
 </template>
