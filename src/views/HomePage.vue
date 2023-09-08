@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import Listbox from 'primevue/listbox';
-import router from "@/router.js";
+import router from "../router.js";
 import courseServices from "../services/courseServices";
 
 //import ViewCourse from './components/addCourse.vue'
