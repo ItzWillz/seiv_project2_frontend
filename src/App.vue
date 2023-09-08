@@ -44,11 +44,6 @@ const items = ref(Array.from({ length: cities.value.length }, (_, i) => ({ label
 </script>
 
 <template>
-<v-app>
-  <v-name>
   <router-view />
-
-  </v-name>
-</v-app>
 </template>
 
