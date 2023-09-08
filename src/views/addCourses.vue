@@ -1,6 +1,6 @@
 <script setup>
   import { ref } from "vue";
-  import courseServices from "../services/courseServices";
+  import courseServices from "../services/courseServices.js";
   import { useRouter } from "vue-router";
   
   const valid = ref(false);
@@ -11,20 +11,21 @@
   id: null,
   name: "",
   hours: "",
-  number: "",
+  courseNum: "",
   level: "",
-  department: "",
-  description: "",
+  dept: "",
+  desc: "",
 });
-//eslink-disable-next-line no-unused-vars
+
+
 const saveCourse = () => {
   const data = {
     name: course.value.name,
     hours: course.value.hours,
-    number: course.value.number,
+    courseNum: course.value.courseNum,
     level: course.value.level,
-    department: course.value.department,
-    description: course.value.description,
+    department: course.value.dept,
+    desc: course.value.desc,
   };
   courseServices.create(data)
     .then((response) => {
@@ -45,7 +46,7 @@ const saveCourse = () => {
       <h1 style="color:white; text-align:center; margin:0px; padding-top:5px;">Add Course</h1>
       </div>
 
-    <v-form v-model="valid" :disabled="isDisabled" style="padding-top:50px;">
+    <v-form v-model="valid" style="padding-top:50px;">
 
 
       <v-container>
@@ -63,7 +64,7 @@ const saveCourse = () => {
 
         <v-row>
           <v-col cols="12" md="4" >
-            <v-text-field v-model="course.number" id="number" label="Number" hide-details required></v-text-field>
+            <v-text-field v-model="course.courseNum" id="courseNum" label="Number" hide-details required></v-text-field>
           </v-col>
 
           <v-col cols="12" md="4" >
@@ -72,13 +73,13 @@ const saveCourse = () => {
 
 
           <v-col cols="12"  md="4">
-          <v-select  v-model="course.department" id="department" label="Department"  :items="['Computer Science', 'Arts', 'Business','Music']"></v-select>
+          <v-select  v-model="course.dept" id="dept" label="Department"  :items="['Computer Science', 'Arts', 'Business','Music']"></v-select>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="12" >
-             <v-text-field  v-model="course.description"  id="description" label="Description"   hide-details
+             <v-text-field  v-model="course.desc"  id="desc" label="Description"   hide-details
           ></v-text-field>
           </v-col>
         </v-row>
