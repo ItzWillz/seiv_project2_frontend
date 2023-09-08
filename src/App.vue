@@ -39,7 +39,7 @@ const cities = ref([
     { name: 'Course',code: '7' }
 ]);
 const items = ref(Array.from({ length: cities.value.length }, (_, i) => ({ label: `${cities.value[i].name} ${cities.value[i].code}`, })));
-retrieveLessons();
+//retrieveLessons();
 
 </script>
 
