@@ -20,12 +20,27 @@ const retrieveLessons = () => {
 };
 
 
+const deleteCourse = (course) => {
+  courseServices.delete(course.id)
+    .then(() => {
+      retrieveLessons();
+    })
+    .catch((e) => {
+      message.value = e.response.data.message;
+    });
+};
+
+
 const addCourse =() => {
      router.push({ name: 'add'});
 };
 
 const editCourse =() => {
-     router.push({ name: 'edit'});
+     router.push({ name: 'edit', params: { id: course.id } });
+};
+
+const viewCourse = (course) => {
+  router.push({ name: "view", params: { id: course.id } });
 };
 
 const selectedCourse = ref();
@@ -48,7 +63,6 @@ retrieveLessons();
               <td>{{ item.title }}</td>
               <td>{{ item.description }}</td>
                           </tr> -->
-    <!--ViewCourse /-->
     <div style="background-color: maroon; width 100%; height:50px; margin:-10px; display:block;">
       <h1 style="color:white; text-align:center; margin:0px; padding-top:10px;">View Courses</h1>
       </div>
@@ -60,14 +74,14 @@ retrieveLessons();
     <div style="margin-top: 7rem"> 
       <h1 style="text-align: center;">Actions</h1>
       <div class="row">
-      <button >View</button>
-      <button @click=editCourse>Edit</button>
+      <button @click=viewCourse(selectedCourse.value) >View</button>
+      <button @click=editCourse(selectedCourse.value)>Edit</button>
       </div>
       <div class="row">
       <button @click=addCourse>Add</button>
       <!-- <a href="../views/addCourses.vue">Add</a> -->
 
-      <button>Delete</button>
+      <button @click=deleteCourse(selectedCourse.value)>Delete</button>
       </div>
       </div>
     </div>
@@ -78,12 +92,5 @@ retrieveLessons();
 </template>
 
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+
 </style>
