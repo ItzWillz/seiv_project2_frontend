@@ -4,6 +4,7 @@ import AddCourse from "@/views/addCourses.vue";
 import ViewCourse from "@/views/ViewCourses.vue";
 import Home from "@/views/HomePage.vue"
 import EditCourse from "./views/EditCourse.vue";
+import View from "./views/ViewCourse.vue";
 //import ListCourses from "./App.vue";
 
 
@@ -31,6 +32,11 @@ const router = createRouter({
             path:"/edit",
             name: "edit",
             component: EditCourse,
+        },
+        {
+                    path:"/courses/:id",
+                    name:"viewCourse",
+                    component: View,
         },
     ],
 });
