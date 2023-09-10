@@ -7,11 +7,22 @@
   
       <!-- Course Information -->
       <div class="course-info">
+        <v-card>
         <strong>Course ID:</strong> {{ course.id }}
         <br />
         <strong>Course Name:</strong> {{ course.name }}
         <br />
         <strong>Hours:</strong> {{ course.hours }}
+        <br />
+        <strong>Course Number:</strong> {{ course.number }}
+        <br />
+        <strong>Course Level:</strong> {{ course.level }}
+        <br />
+        <strong>Department:</strong> {{ course.department }}
+        <br />
+        <strong>Description:</strong> {{ course.description }}
+        <br />
+    </v-card>
       </div>
   
       <!-- Return Button -->
@@ -30,10 +41,14 @@
   export default {
     data() {
       return {
-        course: {
+          course: {
           id: '',
           name: '',
           hours: '',
+          number:0,
+          level:0,
+          department:'',
+          description:'',
         },
       };
     },
@@ -52,10 +67,14 @@
         //   .catch((error) => {
         //     console.error('Error fetching course:', error);
         //   });
-        this.course={
+        this.course={ // Example course info
             id: courseId,
-            name:"MO",
-            hours:5,
+            name: 'Discrete Math',
+            hours: 5,
+            number:5011,
+            level:3000,
+            department:'CS',
+            description:'CS',
         }
       },
     },
