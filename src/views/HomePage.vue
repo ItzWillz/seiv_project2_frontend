@@ -56,6 +56,14 @@ const cities = ref([
 const items = ref(Array.from({ length: cities.value.length }, (_, i) => ({ label: `${cities.value[i].name} ${cities.value[i].code}`, })));
 retrieveLessons();
 
+const viewCourse = () => {
+  if (!selectedCourse.value) {
+    console.error('Error: No course selected.');
+    return;
+  }
+  router.push({ name: 'viewCourse', params: { id: 4 } });//put course ID after retreiving data 
+};
+
 </script>
 
 <template>
@@ -80,6 +88,7 @@ retrieveLessons();
       <div class="row">
       <button @click=addCourse>Add</button>
       <!-- <a href="../views/addCourses.vue">Add</a> -->
+      <button @click="viewCourse()">View Course</button>
 
       <button @click=deleteCourse(selectedCourse.value)>Delete</button>
       </div>
