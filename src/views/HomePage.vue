@@ -39,9 +39,9 @@ const editCourse =() => {
      router.push({ name: 'edit', params: { id: course.id } });
 };
 
-const viewCourse = (course) => {
-  router.push({ name: "view", params: { id: course.id } });
-};
+// const viewCourse = (course) => {
+//   router.push({ name: "view", params: { id: course.id } });
+// };
 
 const selectedCourse = ref();
 const cities = ref([
