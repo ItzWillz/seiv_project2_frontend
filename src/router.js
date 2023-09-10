@@ -1,21 +1,18 @@
 import {createRouter, createWebHistory} from "vue-router";
 
-import AddCourse from "@/views/addCourses.vue";
-import ViewCourse from "@/views/ViewCourses.vue";
-import Home from "@/views/HomePage.vue"
+import AddCourse from "./views/addCourses.vue";
+import ViewCourse from "./views/ViewCourses.vue";
+import Home from "./views/HomePage.vue"
 import EditCourse from "./views/EditCourse.vue";
 import View from "./views/ViewCourse.vue";
 //import ListCourses from "./App.vue";
-
-
-
 
 const router = createRouter({
     history: createWebHistory(),
     routes:[
         {
             path:"/",
-            name: "Home",
+           name: "Home",
             component: Home,
         },
         {
