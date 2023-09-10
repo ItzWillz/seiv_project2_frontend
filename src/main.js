@@ -1,5 +1,5 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
 import vuetify from "./plugins/vuetify.js";
 // import "primeflex/primeflex.css";
 import "primevue/resources/themes/lara-light-blue/theme.css";
@@ -8,8 +8,8 @@ import "primeicons/primeicons.css";
 import "./style.css";
 
 import PrimeVue from "primevue/config";
-import Listbox from 'primevue/listbox';
-import router from './router'
+import Listbox from "primevue/listbox";
+import router from "./router.js"
 
 
 const app = createApp(App);
