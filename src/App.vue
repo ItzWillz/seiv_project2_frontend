@@ -1,11 +1,14 @@
-<script setup>
-import router from "./router.js";
-
-router.push({ name: 'Home'});
-
-</script>
-
 <template>
   <router-view />
 </template>
 
+<script>
+export default {
+  name: "App",
+  components: {},
+  data: () => ({}),
+  async created () {},
+  async mounted () {},
+  methods: {}
+};
+</script>
