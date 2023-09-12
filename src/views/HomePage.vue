@@ -70,12 +70,11 @@ const viewCourse = () => {
       <h1 style="text-align: center;">Actions</h1>
       <div class="row">
       <button @click="editCourse()">Edit</button>
+        <button @click="viewCourse()">View</button>
+
       </div>
       <div class="row">
       <button @click="addCourse()">Add</button>
-      <button @click="viewCourse()">View Course</button>
-
-
       <button @click="deleteCourse()">Delete</button>
       </div>
       </div>

@@ -1,14 +1,14 @@
 import axios from "axios";
 
 //var baseurl = "http://project2.eaglesoftwareteam.com/2023/project2/t2";
-var baseurl = "http://localhost:8081/";
+//var baseurl = "http://localhost:8081/";
 
-// var baseurl = "";
-// if (import.meta.env.DEV) {
-//   baseurl = "http://localhost:8081/courses/";
-// } else {
-//   baseurl = "/course-t2/";
-// }
+var baseurl = "";
+if (import.meta.env.DEV) {
+  baseurl = "http://localhost:8081/";
+} else {
+  baseurl = "/course-t2/";
+}
 
 
 const apiClient = axios.create({
