@@ -1,109 +1,90 @@
+<script setup>
+  import { ref } from "vue";
+  import CourseServices from "../services/courseServices";
+  import { useRouter } from "vue-router";
+
+  const router = useRouter();
+  const course = ref({});
+  const valid = ref(false);
+
+  const props = defineProps({
+  id: {
+    required: true,
+  },
+});
+
+  const retrieveCourse = async () => {
+  try {
+    
+    const response = await CourseServices.get(props.id);
+    course.value = response.data;
+  } 
+  catch (e) {
+    console.log(e.response.data.message);
+    //message.value = e.response.data.message;
+  }
+};
+
+retrieveCourse();
+
+const returnHome = () => {
+  router.push({ path: "/" });
+};
+</script>
+
 <template>
-    <div>
-      <!-- Header -->
-      <div class="header">
-        <h1>View Course</h1>
+<div style="background-color: maroon; width 100%; height:50px; display:block;">
+      <h1 style="color:white; text-align:center; margin:0px; padding-top:5px;">View Course</h1>
       </div>
+
+    <v-form v-model="valid" style="padding-top:50px;">
+
+
+      <v-container>
+        <v-row>
+          <v-col  cols="12"  md="4">
+            <v-text-field v-model="course.name" id="name" label="Name" :counter="50" required hide-details :disabled="true"
+            ></v-text-field>
+          </v-col>
   
-      <!-- Course Information -->
-      <div class="course-info">
-        <v-card>
-        <strong>Course ID:</strong> {{ course.id }}
-        <br />
-        <strong>Course Name:</strong> {{ course.name }}
-        <br />
-        <strong>Hours:</strong> {{ course.hours }}
-        <br />
-        <strong>Course Number:</strong> {{ course.number }}
-        <br />
-        <strong>Course Level:</strong> {{ course.level }}
-        <br />
-        <strong>Department:</strong> {{ course.department }}
-        <br />
-        <strong>Description:</strong> {{ course.description }}
-        <br />
-    </v-card>
-      </div>
-  
-      <!-- Return Button -->
-      <div class="return-button">
-        <router-link to="/">
-          <v-btn color="primary" text>
-            Return
-          </v-btn>
-        </router-link>
-      </div>
-    </div>
+          <v-col cols="12" md="4" >
+          <v-select v-model="course.hours" label="Hours" :disabled="true" > </v-select>
+          </v-col>
+              </v-row>
+
+
+        <v-row>
+          <v-col cols="12" md="4" >
+            <v-text-field v-model="course.courseNum" label="Number" hide-details required :disabled="true"></v-text-field>
+          </v-col>
+
+          <v-col cols="12" md="4" >
+          <v-select  v-model="course.level" label="Level"  :disabled="true"></v-select>
+          </v-col>
+
+
+          <v-col cols="12"  md="4">
+          <v-text-field  v-model="course.dept" label="Department" hide-details required :disabled="true"></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+          <v-col cols="12" >
+             <v-text-field  v-model="course.desc"  label="Description"   hide-details :disabled="true"
+          ></v-text-field>
+          </v-col>
+        </v-row>
+
+        <v-row>
+            <v-col cols="auto">
+            <v-btn  block class="text-none mb-4"   color="#AD1212"  variant="flat" @click="returnHome">
+             Return </v-btn>
+            </v-col>
+        </v-row>
+      </v-container>
+    </v-form>
   </template>
-  
-  <script>
-  //import axios from 'axios';
-  export default {
-    data() {
-      return {
-          course: {
-          id: '',
-          name: '',
-          hours: '',
-          number:0,
-          level:0,
-          department:'',
-          description:'',
-        },
-      };
-    },
-    mounted() {
-      const courseId = this.$route.params.id;
-      
-      // Fetch course data from Express.js server
-      this.fetchCourse(courseId);
-    },
-    methods: {
-      fetchCourse(courseId) {
-        // axios.get(`/api/course/${courseId}`)
-        //   .then((response) => {
-        //     this.course = response.data; // Assuming you receive a single course object
-        //   })
-        //   .catch((error) => {
-        //     console.error('Error fetching course:', error);
-        //   });
-        this.course={ // Example course info
-            id: courseId,
-            name: 'Discrete Math',
-            hours: 5,
-            number:5011,
-            level:3000,
-            department:'CS',
-            description:'CS',
-        }
-      },
-    },
-  };
-  </script>
-  <style scoped>
-  /* Add your CSS styles here */
-  .header {
-    background-color: maroon;
-    width: 100%;
-    height: 50px;
-    margin: -10px;
-    text-align: center;
-  }
-  
-  .header h1 {
-    color: white;
-    margin: 0;
-    padding-top: 10px;
-  }
-  
-  .course-info {
-    margin-top: 1rem;
-    text-align: center;
-  }
-  
-  .return-button {
-    margin-top: 2rem;
-    text-align: center;
-  }
-  </style>
-  
+
+<style>
+
+</style>
