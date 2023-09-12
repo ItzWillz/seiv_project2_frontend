@@ -1,14 +1,31 @@
-<script>
-  
-  export default {
-    data: () => ({
-      valid: false,
-      name: '',
-      hours: '',
-      number: '',
-      isDisabled: false,
-    }),
+<script setup>
+  import { ref } from "vue";
+  import CourseServices from "../services/courseServices";
+  import { useRouter } from "vue-router";
+
+  const router = useRouter();
+  const course = ref({});
+  const valid = ref(false);
+
+  const props = defineProps({
+  id: {
+    required: true,
+  },
+});
+
+  const retrieveCourse = async () => {
+  try {
+    
+    const response = await CourseServices.get(props.id);
+    course.value = response.data;
+  } 
+  catch (e) {
+    console.log(e.response.data.message);
+    //message.value = e.response.data.message;
   }
+};
+
+retrieveCourse();
 </script>
 
 <template>
@@ -16,40 +33,40 @@
       <h1 style="color:white; text-align:center; margin:0px; padding-top:5px;">Edit Course</h1>
       </div>
 
-    <v-form v-model="valid" :disabled="isDisabled" style="padding-top:50px;">
+    <v-form v-model="valid" style="padding-top:50px;">
 
 
       <v-container>
         <v-row>
           <v-col  cols="12"  md="4">
-            <v-text-field  v-model="name"  label="Name"  required  hide-details
+            <v-text-field v-model="course.name" id="name" label="Name" :counter="50" required hide-details
             ></v-text-field>
           </v-col>
   
           <v-col cols="12" md="4" >
-          <v-select label="Hours" :items="['0','1', '2', '3', '4',]" > </v-select>
+          <v-select v-model="course.hours" label="Hours" :items="['0','1', '2', '3', '4',]" > </v-select>
           </v-col>
               </v-row>
 
 
         <v-row>
           <v-col cols="12" md="4" >
-            <v-text-field v-model="number" label="Number" hide-details required></v-text-field>
+            <v-text-field v-model="course.courseNum" label="Number" hide-details required></v-text-field>
           </v-col>
 
           <v-col cols="12" md="4" >
-          <v-select  label="Level"  :items="['0', '1', '2', '3', '4','5']"></v-select>
+          <v-select  v-model="course.level" label="Level"  :items="['0', '1', '2', '3', '4','5']"></v-select>
           </v-col>
 
 
           <v-col cols="12"  md="4">
-          <v-select  label="Department"  :items="['Computer Science', 'Arts', 'Business','Music']"></v-select>
+          <v-text-field  v-model="course.dept" label="Department" hide-details required></v-text-field>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="12" >
-             <v-text-field  v-model="description"  label="Description"   hide-details
+             <v-text-field  v-model="course.desc"  label="Description"   hide-details
           ></v-text-field>
           </v-col>
         </v-row>

@@ -1,7 +1,6 @@
 import {createRouter, createWebHistory} from "vue-router";
 
 import AddCourse from "./views/addCourses.vue";
-import ViewCourse from "./views/ViewCourses.vue";
 import Home from "./views/HomePage.vue"
 import EditCourse from "./views/EditCourse.vue";
 import View from "./views/ViewCourse.vue";
@@ -21,19 +20,16 @@ const router = createRouter({
             component: AddCourse,
         },
         {
-            path:"/view",
-            name: "view",
-            component: ViewCourse,
-        },
-        {
-            path:"/edit",
+            path:"/edit/:id",
             name: "edit",
             component: EditCourse,
+            props: true,
         },
         {
-                    path:"/courses/:id",
+                    path:"/view/:id",
                     name:"viewCourse",
                     component: View,
+                    props: true,
         },
     ],
 });

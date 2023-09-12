@@ -1,7 +1,14 @@
 import axios from "axios";
 
-var baseurl = "http://project2.eaglesoftwareteam.com/2023/project2/t2";
+//var baseurl = "http://project2.eaglesoftwareteam.com/2023/project2/t2";
+var baseurl = "http://localhost:8081/";
 
+// var baseurl = "";
+// if (import.meta.env.DEV) {
+//   baseurl = "http://localhost:8081/courses/";
+// } else {
+//   baseurl = "/course-t2/";
+// }
 
 
 const apiClient = axios.create({
@@ -19,6 +26,10 @@ const apiClient = axios.create({
     //   localStorage.deleteItem("user");
     // }
     // console.log(Utils.getStore("user"))
+    return data;
+  },
+  transformRequest: function (data) {
+    data = JSON.stringify(data);
     return data;
   },
 });
