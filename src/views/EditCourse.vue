@@ -31,6 +31,27 @@ const returnHome = () => {
   router.push({ path: "/" });
 };
 
+const editCourse = async () => {
+  const data = {
+    name: course.value.name,
+    hours: course.value.hours,
+    courseNum: course.value.courseNum,
+    level: course.value.level,
+    dept: course.value.dept,
+    desc: course.value.desc,
+  };
+  try {
+    const response = await CourseServices.update(props.id, data);
+    course.value.courseNum = response.data.id;
+    router.push({ name: "Home" });
+  } 
+  catch (e) {
+    console.log(e.response.data.message);
+    //message.value = e.response.data.message;
+  }
+};
+
+
 </script>
 
 <template>
@@ -78,7 +99,7 @@ const returnHome = () => {
 
         <v-row>
             <v-col cols="auto">
-            <v-btn  block class="text-none mb-4"   color="#AD1212"  variant="flat" @click=!isDisabled>
+            <v-btn  block class="text-none mb-4"   color="#AD1212"  variant="flat" @click="editCourse()">
              Submit </v-btn>
             <v-btn  block class="text-none mb-4"   color="#AD1212"  variant="flat" @click="returnHome">
              Return </v-btn>
