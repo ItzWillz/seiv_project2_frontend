@@ -6,11 +6,10 @@ import courseServices from "../services/courseServices";
 
 const course = ref([]);
 
-const retrieveCourses = () => {
+const retrieveLessons = () => {
   courseServices.getAll()
     .then((response) => {
       course.value = response.data;
-    //   console.log(course.value);
     })
     .catch((e) => {
         console.log(e);
@@ -18,7 +17,7 @@ const retrieveCourses = () => {
     });
 };
 
-retrieveCourses();
+retrieveLessons();
 
 const deleteCourse = () => {
   courseServices.delete(selectedCourse.value)
@@ -50,7 +49,6 @@ const viewCourse = () => {
     console.error('Error: No course selected.');
     return;
   }
-  console.log(selectedCourse.value);
   router.push({ name: 'viewCourse', params: { id: selectedCourse.value } });
 };
 
