@@ -26,6 +26,11 @@
 };
 
 retrieveCourse();
+
+const returnHome = () => {
+  router.push({ path: "/" });
+};
+
 </script>
 
 <template>
@@ -75,6 +80,8 @@ retrieveCourse();
             <v-col cols="auto">
             <v-btn  block class="text-none mb-4"   color="#AD1212"  variant="flat" @click=!isDisabled>
              Submit </v-btn>
+            <v-btn  block class="text-none mb-4"   color="#AD1212"  variant="flat" @click="returnHome">
+             Return </v-btn>
             </v-col>
         </v-row>
       </v-container>
