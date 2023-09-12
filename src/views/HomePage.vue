@@ -51,7 +51,6 @@ const editCourse =() => {
 
 const selectedCourse = ref();
 
-
 const viewCourse = () => {
   if (!selectedCourse.value) {
     console.error('Error: No course selected.');
@@ -60,6 +59,7 @@ const viewCourse = () => {
   console.log(selectedCourse.value);
   router.push({ name: 'viewCourse', params: { id: selectedCourse.value } });
 };
+
 
 </script>
 
@@ -83,6 +83,7 @@ const viewCourse = () => {
       <div class="row">
       <button @click=addCourse>Add</button>
       <button @click="viewCourse()">View Course</button>
+
 
       <button @click=deleteCourse(selectedCourse.value)>Delete</button>
       </div>
