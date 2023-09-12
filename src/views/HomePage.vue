@@ -6,11 +6,11 @@ import courseServices from "../services/courseServices";
 
 const course = ref([]);
 
-const retrieveLessons = () => {
+const retrieveCourses = () => {
   courseServices.getAll()
     .then((response) => {
       course.value = response.data;
-      console.log(course.value);
+    //   console.log(course.value);
     })
     .catch((e) => {
         console.log(e);
@@ -18,17 +18,12 @@ const retrieveLessons = () => {
     });
 };
 
-retrieveLessons();
+retrieveCourses();
 
-const deleteCourse = (course) => {
-  courseServices.delete(course.courseNum)
-    .then(() => {
-      //retrieveLessons();
-      router.push({name: "home"});
-    })
-    .catch((e) => {
-        console.log(e.response.data.message);
-      //message.value = e.response.data.message;
+const deleteCourse = () => {
+  courseServices.delete(selectedCourse.value)
+    .finally(() => {
+        router.go();
     });
 };
 
@@ -44,7 +39,6 @@ const editCourse =() => {
     console.error('Error: No course selected.');
     return;
   }
-  console.log(selectedCourse.value);
   router.push({ name: 'edit', params: { id: selectedCourse.value } });
 };
 
@@ -77,15 +71,14 @@ const viewCourse = () => {
     <div style="margin-top: 7rem"> 
       <h1 style="text-align: center;">Actions</h1>
       <div class="row">
-      <button @click=viewCourse(selectedCourse.value) >View</button>
-      <button @click=editCourse()>Edit</button>
+      <button @click="editCourse()">Edit</button>
       </div>
       <div class="row">
-      <button @click=addCourse>Add</button>
+      <button @click="addCourse()">Add</button>
       <button @click="viewCourse()">View Course</button>
 
 
-      <button @click=deleteCourse(selectedCourse.value)>Delete</button>
+      <button @click="deleteCourse()">Delete</button>
       </div>
       </div>
     </div>

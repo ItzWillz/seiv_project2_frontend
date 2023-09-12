@@ -24,7 +24,7 @@ const saveCourse = () => {
     hours: course.value.hours,
     courseNum: course.value.courseNum,
     level: course.value.level,
-    department: course.value.dept,
+    dept: course.value.dept,
     desc: course.value.desc,
   };
   courseServices.create(data)
@@ -37,6 +37,10 @@ const saveCourse = () => {
       //console.log(e);
       message.value = e.response.data.message;
     });
+};
+
+const returnHome = () => {
+  router.push({ path: "/" });
 };
 
 </script>
@@ -89,6 +93,8 @@ const saveCourse = () => {
             <v-btn  :disabled="!valid" class="text-none mb-4"   color="#AD1212"  variant="flat" 
             @click="saveCourse">
              Submit </v-btn>
+            <v-btn  block class="text-none mb-4"   color="#AD1212"  variant="flat" @click="returnHome">
+             Return </v-btn>
             </v-col>
         </v-row>
       </v-container>

@@ -5,7 +5,7 @@ export default{
         return apiClient.get("/courses");
       },
     create(data){
-        return apiClient.post("/", data);
+        return apiClient.post("/courses", data);
     },
     get(id){
         return apiClient.get(`/courses/${id}`);
