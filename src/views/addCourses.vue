@@ -77,7 +77,7 @@ const returnHome = () => {
 
 
           <v-col cols="12"  md="4">
-          <v-select  v-model="course.dept" id="dept" label="Department"  :items="['Computer Science', 'Arts', 'Business','Music']"></v-select>
+          <v-text-field  v-model="course.dept" id="dept" label="Department"></v-text-field>
           </v-col>
         </v-row>
 
