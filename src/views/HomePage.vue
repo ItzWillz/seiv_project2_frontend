@@ -64,7 +64,7 @@ const viewCourse = () => {
       <div class="column">
     <div class="card flex justify-content-center">
         <Listbox v-model="selectedCourse"  :options='course' optionLabel= 'name' optionValue="courseNum" 
-        :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:250px" />
+        :virtualScrollerOptions="{ itemSize: 38 }" class="w-full md:w-14rem" listStyle="height:450px" />
 
     </div>
     <div style="margin-top: 7rem"> 

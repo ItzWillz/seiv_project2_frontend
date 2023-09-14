@@ -83,8 +83,8 @@ const returnHome = () => {
 
         <v-row>
           <v-col cols="12" >
-             <v-text-field class="text-wrap" v-model="course.desc"  id="desc" label="Description" hide-details textarea
-          ></v-text-field>
+             <v-textarea class="text-wrap" v-model="course.desc"  id="desc" label="Description" hide-details textarea
+          ></v-textarea>
           </v-col>
         </v-row>
 
