@@ -92,7 +92,7 @@ const editCourse = async () => {
 
         <v-row>
           <v-col cols="12" >
-             <v-text-field  v-model="course.desc"  label="Description"   hide-details
+             <v-text-field class="text-wrap" v-model="course.desc"  label="Description"   hide-details
           ></v-text-field>
           </v-col>
         </v-row>
@@ -110,5 +110,10 @@ const editCourse = async () => {
   </template>
 
 <style>
-
+.text-wrap{
+  height: 200;
+  max-height: 200px;
+  overflow-y:auto;
+  word-wrap: break-word;
+}
 </style>
