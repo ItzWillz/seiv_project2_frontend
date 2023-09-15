@@ -83,8 +83,8 @@ const returnHome = () => {
 
         <v-row>
           <v-col cols="12" >
-             <v-text-field  v-model="course.desc"  id="desc" label="Description"   hide-details
-          ></v-text-field>
+             <v-textarea class="text-wrap" v-model="course.desc"  id="desc" label="Description" hide-details textarea
+          ></v-textarea>
           </v-col>
         </v-row>
 
@@ -101,6 +101,12 @@ const returnHome = () => {
     </v-form>
   </template>
 
-<style>
-
+<style scoped>
+.text-wrap{
+  height: 200;
+  max-height: 200px;
+  overflow-y:auto;
+  word-wrap: break-word;
+}
 </style>
+
