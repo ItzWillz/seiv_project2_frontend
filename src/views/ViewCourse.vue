@@ -43,34 +43,34 @@ const returnHome = () => {
       <v-container>
         <v-row>
           <v-col  cols="12"  md="4">
-            <v-text-field v-model="course.name" id="name" label="Name" :counter="50" required hide-details :disabled="true"
+            <v-text-field v-model="course.name" id="name" label="Name" :counter="50" required hide-details readonly=""
             ></v-text-field>
           </v-col>
   
           <v-col cols="12" md="4" >
-          <v-select v-model="course.hours" label="Hours" :disabled="true" > </v-select>
+          <v-select v-model="course.hours" label="Hours" readonly="" > </v-select>
           </v-col>
               </v-row>
 
 
         <v-row>
           <v-col cols="12" md="4" >
-            <v-text-field v-model="course.courseNum" label="Number" hide-details required :disabled="true"></v-text-field>
+            <v-text-field v-model="course.courseNum" label="Number" hide-details required readonly=""></v-text-field>
           </v-col>
 
           <v-col cols="12" md="4" >
-          <v-select  v-model="course.level" label="Level"  :disabled="true"></v-select>
+          <v-select  v-model="course.level" label="Level"  readonly=""></v-select>
           </v-col>
 
 
           <v-col cols="12"  md="4">
-          <v-text-field  v-model="course.dept" label="Department" hide-details required :disabled="true"></v-text-field>
+          <v-text-field  v-model="course.dept" label="Department" hide-details required readonly=""></v-text-field>
           </v-col>
         </v-row>
 
         <v-row>
           <v-col cols="12" >
-             <v-textarea class="text-wrap" v-model="course.desc"  label="Description"   hide-details :disabled="true"
+             <v-textarea class="text-wrap" v-model="course.desc"  label="Description"   hide-details readonly=""
           ></v-textarea>
           </v-col>
         </v-row>
